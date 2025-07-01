@@ -3,11 +3,12 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "dev": "tsx index.ts",
+        "dev": "tsx src/index.ts",
         "build": "tsc",
         "start": "node build/index.js"
     },
     "dependencies": {
+        "@audit-loop/config": "file:../../packages/config",
         "@types/cors": "^2.8.19",
         "@types/express": "^4.17.23",
         "@types/node": "^24.0.7",
@@ -15,6 +16,7 @@
         "cors": "^2.8.5",
         "express": "^4.21.2",
         "tsx": "^4.20.3",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "@audit-loop/db": "file:../../packages/db"
     }
 }

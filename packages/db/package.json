@@ -7,6 +7,7 @@
         "type-check": "tsc --noEmit"
     },
     "dependencies": {
+        "@audit-loop/config": "file:../config",
         "@types/node": "^24.0.7",
         "@types/pg": "^8.15.4",
         "pg": "^8.16.3",

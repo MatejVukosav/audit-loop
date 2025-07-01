@@ -1,5 +1,5 @@
-import React from "react";
-import { MetricCard } from "./MetricCard";
+import React from 'react';
+import { MetricCard } from './MetricCard';
 
 interface Metrics {
   p95_latency_ms: number;
@@ -11,16 +11,29 @@ interface MetricsGridProps {
 }
 
 export const MetricsGrid: React.FC<MetricsGridProps> = ({ metrics }) => {
+  // Show placeholder if both metrics are zero (no events in DB)
+  if (metrics.p95_latency_ms === 0 && metrics.total_spend_usd === 0) {
+    return (
+      <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-16 text-center shadow-2xl border border-white/30">
+        <div className="text-6xl mb-6">📭</div>
+        <h3 className="text-2xl font-semibold text-gray-700 mb-3">No events found</h3>
+        <p className="text-lg text-gray-500 font-medium">
+          There are no events in the database for this workspace in the last 60 minutes.
+        </p>
+      </div>
+    );
+  }
+
   const getLatencyStatus = (latency: number) => {
-    if (latency < 100) return "🟢 Excellent";
-    if (latency < 300) return "🟡 Good";
-    return "🔴 Needs attention";
+    if (latency < 100) return '🟢 Excellent';
+    if (latency < 300) return '🟡 Good';
+    return '🔴 Needs attention';
   };
 
   const getSpendStatus = (spend: number) => {
-    if (spend < 5) return "🟢 Low cost";
-    if (spend < 10) return "🟡 Moderate";
-    return "🔴 High cost";
+    if (spend < 5) return '🟢 Low cost';
+    if (spend < 10) return '🟡 Moderate';
+    return '🔴 High cost';
   };
 
   return (

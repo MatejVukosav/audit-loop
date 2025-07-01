@@ -1,13 +1,13 @@
-import { Pool, QueryResult, QueryResultRow } from "pg";
+import { Pool, QueryResult, QueryResultRow } from 'pg';
+import { env } from '../config/config';
 
 const pool: Pool = new Pool({
-  connectionString:
-    process.env.DATABASE_URL || "postgres://audit:audit@localhost:5432/audit",
+  connectionString: env.DATABASE_URL,
 });
 
 export async function query<T extends QueryResultRow = QueryResultRow>(
   text: string,
-  params?: any[]
+  params?: any[],
 ): Promise<QueryResult<T>> {
   return pool.query(text, params);
 }

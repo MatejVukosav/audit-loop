@@ -1,4 +1,5 @@
-import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
+import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
+import { env } from '../config/config';
 
 interface EventPayload {
   workspace_id: string;
@@ -9,23 +10,21 @@ interface EventPayload {
 }
 
 const sqs: SQSClient = new SQSClient({
-  region: "eu-central-1",
-  endpoint: process.env.SQS_ENDPOINT || "http://localhost:4566",
+  region: env.AWS_REGION || 'eu-central-1',
+  endpoint: env.AWS_ENDPOINT_URL || 'http://localhost:4566',
   credentials: {
-    accessKeyId: "test",
-    secretAccessKey: "test",
+    accessKeyId: env.AWS_ACCESS_KEY_ID || 'test',
+    secretAccessKey: env.AWS_SECRET_ACCESS_KEY || 'test',
   },
 });
 
-const QUEUE_URL: string =
-  process.env.SQS_QUEUE_URL ||
-  "http://localhost:4566/000000000000/audit-events";
+const queueUrl = env.SQS_QUEUE_URL || 'http://localhost:4566/000000000000/audit-events';
 
 export async function sendEventToQueue(event: EventPayload): Promise<void> {
   await sqs.send(
     new SendMessageCommand({
-      QueueUrl: QUEUE_URL,
+      QueueUrl: queueUrl,
       MessageBody: JSON.stringify(event),
-    })
+    }),
   );
 }
