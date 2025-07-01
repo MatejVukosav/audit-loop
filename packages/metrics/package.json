@@ -1,0 +1,13 @@
+{
+    "name": "@audit-loop/metrics",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "scripts": {
+        "build": "tsc",
+        "type-check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@types/node": "^24.0.7",
+        "typescript": "^5.8.3"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "@audit-loop/sqs",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "scripts": {
+        "build": "tsc",
+        "type-check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@aws-sdk/client-sqs": "^3.839.0",
+        "@types/node": "^24.0.7",
+        "typescript": "^5.8.3"
+    }
+}

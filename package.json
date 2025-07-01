@@ -1,0 +1,26 @@
+{
+    "name": "audit-loop",
+    "version": "1.0.0",
+    "description": "Audit Loop - Real-time monitoring for AI performance and costs",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev:api": "npm run dev -w apps/api",
+        "dev:worker": "npm run dev -w apps/worker",
+        "dev:dashboard": "npm run dev -w apps/dashboard",
+        "build": "npm run build -w apps/api && npm run build -w apps/worker && npm run build -w apps/dashboard"
+    },
+    "keywords": [
+        "audit",
+        "monitoring",
+        "ai",
+        "performance"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@tailwindcss/postcss": "^4.1.11"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "@audit-loop/worker",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "scripts": {
+        "dev": "tsx index.ts",
+        "build": "tsc",
+        "start": "node build/index.js"
+    },
+    "dependencies": {
+        "@aws-sdk/client-sqs": "^3.839.0",
+        "@types/node": "^24.0.7",
+        "@types/pg": "^8.15.4",
+        "axios": "^1.10.0",
+        "pg": "^8.16.3",
+        "tsx": "^4.20.3",
+        "typescript": "^5.8.3"
+    }
+}
