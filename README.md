@@ -12,7 +12,7 @@ This monorepo implements a thin slice of Audit Loop:
 
 ## How it looks
 
-![Audit Loop Dashboard](dashboard-screenshot.jpg)
+<img width="1630" alt="Screenshot 2025-07-02 at 00 14 50" src="https://github.com/user-attachments/assets/6e4fc934-aebf-4d67-bb06-48157be7b0ed" />
 
 ### Features implemented
 
