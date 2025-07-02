@@ -2,15 +2,6 @@ import { SQSClient, ReceiveMessageCommand, DeleteMessageCommand } from '@aws-sdk
 import { EventPayload } from './types';
 import { env } from '../../../packages/config/config';
 
-console.log('[SQS] Configuring SQS client with:');
-console.log('[SQS] Region:', env.AWS_REGION || 'eu-central-1');
-console.log('[SQS] Endpoint:', env.AWS_ENDPOINT_URL || 'http://localhost:4566');
-console.log('[SQS] Access Key ID:', env.AWS_ACCESS_KEY_ID || 'test');
-console.log(
-  '[SQS] Queue URL:',
-  env.SQS_QUEUE_URL || 'http://localhost:4566/000000000000/audit-events',
-);
-
 const sqs: SQSClient = new SQSClient({
   region: env.AWS_REGION || 'eu-central-1',
   endpoint: env.AWS_ENDPOINT_URL || 'http://localhost:4566',

@@ -19,13 +19,10 @@ export function useLiveMetrics(selectedWorkspace: string) {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
-  // Fetch metrics on mount and when workspace changes
   useEffect(() => {
     if (!selectedWorkspace) return;
     fetchMetrics(selectedWorkspace)
       .then((data) => {
-        // If you have a timestamp in the metrics, check if it's recent
-        // For now, assume data is for the last 60 minutes
         setMetrics(data);
         setLastUpdated(new Date());
         setError(null);
@@ -48,7 +45,6 @@ export function useLiveMetrics(selectedWorkspace: string) {
         setError(null);
       } else if (msg.type === 'event') {
         console.log('[Dashboard] Received event for workspace:', msg.payload.workspace_id);
-        // Optionally refresh metrics when an event is received
         if (msg.payload.workspace_id === selectedWorkspace) {
           console.log('[Dashboard] Refreshing metrics due to new event');
           // Add a small delay to allow the worker to process the event

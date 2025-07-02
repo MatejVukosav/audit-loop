@@ -1,21 +1,8 @@
-console.log('[Worker] Starting worker...');
-
-console.log('[Worker] Importing modules...');
 import { pollSqs } from './sqs';
-console.log('[Worker] SQS module imported');
-
 import { bufferEvent, flushEventBuffer } from './db';
-console.log('[Worker] DB module imported');
-
 import { setupMetricsServer, eventsProcessed, eventsFailed } from './metrics';
-console.log('[Worker] Metrics module imported');
 
-// Start Prometheus metrics server
-console.log('[Worker] Setting up metrics server...');
 setupMetricsServer();
-console.log('[Worker] Metrics server setup complete');
-
-console.log('[Worker] Starting SQS polling...');
 
 // Main SQS poll loop
 console.log('[Worker] About to start SQS polling...');

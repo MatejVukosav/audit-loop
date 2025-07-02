@@ -53,6 +53,7 @@ export async function flushEventBuffer() {
   }
 }
 
+//100 elements per batch or 1 second interval
 export function bufferEvent(event: EventPayload) {
   console.log(`[DB] Buffering event for workspace: ${event.workspace_id}`);
   eventBuffer.push(event);

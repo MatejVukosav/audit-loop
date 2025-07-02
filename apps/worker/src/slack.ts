@@ -20,6 +20,7 @@ export async function processSlackQueue() {
     if (!workspace_id) continue;
     try {
       const metrics = await getMetricsForWorkspace(workspace_id);
+      if (metrics.total_spend_usd < 10) continue;
       await axios.post(SLACK_WEBHOOK_URL, {
         text: `Workspace ${workspace_id} spent $${metrics.total_spend_usd.toFixed(2)} in the last hour!`,
       });

@@ -12,14 +12,8 @@
         "dev:dashboard": "npm run dev -w apps/dashboard",
         "build": "npm run build -w apps/api && npm run build -w apps/worker && npm run build -w apps/dashboard"
     },
-    "keywords": [
-        "audit",
-        "monitoring",
-        "ai",
-        "performance"
-    ],
-    "author": "",
-    "license": "ISC",
+    "author": "Matej Vukosav",
+    "license": "MIT",
     "dependencies": {
         "@tailwindcss/postcss": "^4.1.11",
         "dotenv": "^17.0.1",
